@@ -10,3 +10,7 @@ sudo pip install flask
 sudo pip install flask-restful
 sudo pip install psycopg2
 sudo pip install Flask-SQLAlchemy
+sudo pip install requests
+
+Execution:
+python BackendController.py
