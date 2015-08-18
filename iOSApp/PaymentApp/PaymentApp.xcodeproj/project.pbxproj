@@ -13,6 +13,8 @@
 		9AB283F41B830CF200F010BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AB283F31B830CF200F010BD /* Images.xcassets */; };
 		9AB283F71B830CF200F010BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AB283F51B830CF200F010BD /* LaunchScreen.xib */; };
 		9AB284031B830CF200F010BD /* PaymentAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB284021B830CF200F010BD /* PaymentAppTests.swift */; };
+		9AB2840D1B83192400F010BD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB2840C1B83192400F010BD /* LoginViewController.swift */; };
+		9AB2840F1B831A6300F010BD /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB2840E1B831A6300F010BD /* RegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		9AB283FC1B830CF200F010BD /* PaymentAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PaymentAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AB284011B830CF200F010BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AB284021B830CF200F010BD /* PaymentAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAppTests.swift; sourceTree = "<group>"; };
+		9AB2840C1B83192400F010BD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9AB2840E1B831A6300F010BD /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				9AB283F31B830CF200F010BD /* Images.xcassets */,
 				9AB283F51B830CF200F010BD /* LaunchScreen.xib */,
 				9AB283EA1B830CF200F010BD /* Supporting Files */,
+				9AB2840C1B83192400F010BD /* LoginViewController.swift */,
+				9AB2840E1B831A6300F010BD /* RegistrationViewController.swift */,
 			);
 			path = PaymentApp;
 			sourceTree = "<group>";
@@ -212,7 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB2840D1B83192400F010BD /* LoginViewController.swift in Sources */,
 				9AB283EF1B830CF200F010BD /* ViewController.swift in Sources */,
+				9AB2840F1B831A6300F010BD /* RegistrationViewController.swift in Sources */,
 				9AB283ED1B830CF200F010BD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

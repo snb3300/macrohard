@@ -7,6 +7,7 @@
         <!--HOME-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="PaymentApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
@@ -16,77 +17,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mWs-OC-dMn">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPQ-KO-Gl6">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="165" y="121" width="71" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CH3-pp-0Od">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Log In">
+                                <state key="normal" title="Logout">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="95" y="562" width="73" height="30"/>
+                                    <rect key="frame" x="77" y="269" width="247" height="30"/>
                                 </variation>
                                 <connections>
-                                    <segue destination="PdO-mf-Zbm" kind="show" identifier="goto_login" id="O1w-8z-CfC"/>
+                                    <action selector="logout:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uDC-De-6dm"/>
+                                    <action selector="signInTap:" destination="PdO-mf-Zbm" eventType="touchUpInside" id="XNn-2t-tI0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LX2-Se-05l">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvN-gm-CmH">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="233" y="562" width="73" height="30"/>
+                                    <rect key="frame" x="101" y="192" width="198" height="21"/>
                                 </variation>
-                                <connections>
-                                    <segue destination="GDl-hB-IbZ" kind="show" identifier="goto_signup" id="7GX-9c-3HZ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcG-ba-2EA">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Facebook Login">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="95" y="622" width="211" height="30"/>
-                                </variation>
-                            </button>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="mWs-OC-dMn"/>
-                                <exclude reference="LX2-Se-05l"/>
-                                <exclude reference="xcG-ba-2EA"/>
+                                <exclude reference="SPQ-KO-Gl6"/>
+                                <exclude reference="CH3-pp-0Od"/>
+                                <exclude reference="mvN-gm-CmH"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="mWs-OC-dMn"/>
-                                <include reference="LX2-Se-05l"/>
-                                <include reference="xcG-ba-2EA"/>
+                                <include reference="SPQ-KO-Gl6"/>
+                                <include reference="CH3-pp-0Od"/>
+                                <include reference="mvN-gm-CmH"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="HOME" id="YK3-uC-TnZ"/>
+                    <connections>
+                        <outlet property="usernameLabel" destination="mvN-gm-CmH" id="NYw-7C-YUF"/>
+                        <segue destination="PdO-mf-Zbm" kind="presentation" identifier="goto_login" id="rsm-sP-rlw"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="835.5" y="-720"/>
         </scene>
-        <!--View Controller-->
+        <!--Registration View Controller-->
         <scene sceneID="d48-xG-7dQ">
             <objects>
-                <viewController id="GDl-hB-IbZ" sceneMemberID="viewController">
+                <viewController id="GDl-hB-IbZ" customClass="RegistrationViewController" customModule="PaymentApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ur3-7f-h0X"/>
                         <viewControllerLayoutGuide type="bottom" id="iCk-k8-wvd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qbg-wf-upB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3cP-sn-Hve">
@@ -102,7 +101,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="105" y="221" width="189" height="30"/>
+                                    <rect key="frame" x="106" y="221" width="189" height="30"/>
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Sf-zk-UuW">
@@ -139,6 +138,9 @@
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="164" y="479" width="73" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="signUpTap:" destination="GDl-hB-IbZ" eventType="touchUpInside" id="fza-NF-bzN"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registration" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2sP-nk-7Fx">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -149,6 +151,21 @@
                                     <rect key="frame" x="133" y="87" width="132" height="38"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrV-WE-zWZ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Already have an Accont? Login now">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="47" y="534" width="305" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="gotoLogin:" destination="GDl-hB-IbZ" eventType="touchUpInside" id="SrP-Am-o6n"/>
+                                    <action selector="signUpTap:" destination="GDl-hB-IbZ" eventType="touchUpInside" id="oKj-Et-CTS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
@@ -160,6 +177,7 @@
                                 <exclude reference="AGh-5c-TaB"/>
                                 <exclude reference="UAp-WR-Uar"/>
                                 <exclude reference="2sP-nk-7Fx"/>
+                                <exclude reference="QrV-WE-zWZ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -171,23 +189,32 @@
                                 <include reference="AGh-5c-TaB"/>
                                 <include reference="UAp-WR-Uar"/>
                                 <include reference="2sP-nk-7Fx"/>
+                                <include reference="QrV-WE-zWZ"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="confirmPassword" destination="AGh-5c-TaB" id="NBI-5V-oVm"/>
+                        <outlet property="email" destination="4Sf-zk-UuW" id="SR6-QF-oFy"/>
+                        <outlet property="firstName" destination="3cP-sn-Hve" id="Gl7-6f-dT3"/>
+                        <outlet property="lastName" destination="yBN-ny-R38" id="Yv0-40-5ai"/>
+                        <outlet property="password" destination="GZ0-x0-qKM" id="FxX-kB-S5k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3rQ-2b-Ftc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1704" y="-178.5"/>
+            <point key="canvasLocation" x="1737" y="-121.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tQr-PL-IsS">
             <objects>
-                <viewController id="PdO-mf-Zbm" sceneMemberID="viewController">
+                <viewController id="PdO-mf-Zbm" customClass="LoginViewController" customModule="PaymentApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mqp-Yx-f7i"/>
                         <viewControllerLayoutGuide type="bottom" id="4c7-mR-Krb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uPz-zc-D8d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IvQ-71-Wgg">
@@ -200,6 +227,9 @@
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="164" y="284" width="73" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="signInTap:" destination="PdO-mf-Zbm" eventType="touchUpInside" id="PHd-3E-0DE"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C1U-ak-Drm">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -226,6 +256,22 @@
                                     <rect key="frame" x="134" y="93" width="132" height="38"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC7-Ga-Oeg">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Don't have an Account? Signup now">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="29" y="341" width="343" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="gotoSignUp:" destination="PdO-mf-Zbm" eventType="touchUpInside" id="TPp-rj-2y4"/>
+                                    <action selector="signInTap:" destination="PdO-mf-Zbm" eventType="touchUpInside" id="69m-Qf-WPQ"/>
+                                    <segue destination="GDl-hB-IbZ" kind="presentation" id="7gV-4N-hgD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                         <variation key="default">
@@ -234,6 +280,7 @@
                                 <exclude reference="C1U-ak-Drm"/>
                                 <exclude reference="0SL-at-wIu"/>
                                 <exclude reference="VEG-We-tEj"/>
+                                <exclude reference="nC7-Ga-Oeg"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -242,9 +289,14 @@
                                 <include reference="C1U-ak-Drm"/>
                                 <include reference="0SL-at-wIu"/>
                                 <include reference="VEG-We-tEj"/>
+                                <include reference="nC7-Ga-Oeg"/>
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="password" destination="0SL-at-wIu" id="U73-OR-idr"/>
+                        <outlet property="username" destination="C1U-ak-Drm" id="d0r-qQ-ryF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWz-la-Czr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
