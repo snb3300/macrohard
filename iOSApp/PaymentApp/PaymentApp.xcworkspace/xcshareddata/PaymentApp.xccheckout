@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>32A4E825-4406-4DA1-B223-3D4EF2A7E3A3</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PaymentApp</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5EE105119FF664331F23F12136AAE8A4A7DF257F</key>
+		<string>github.com:snb3300/macrohard.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>iOSApp/PaymentApp/PaymentApp.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5EE105119FF664331F23F12136AAE8A4A7DF257F</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:snb3300/macrohard.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5EE105119FF664331F23F12136AAE8A4A7DF257F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5EE105119FF664331F23F12136AAE8A4A7DF257F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>macrohard</string>
+		</dict>
+	</array>
+</dict>
+</plist>
