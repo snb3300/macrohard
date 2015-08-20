@@ -12,23 +12,18 @@ backendControllerAPI = Api(backendControllerAPP)
 db = SQLAlchemy(backendControllerAPP)
 
 
-class User_Info(db.Model):
-    user_id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True)
+class UserInfo(db.Model):
+    email = db.Column(db.String(120), unique=True, primary_key=True)
     password = db.Column(db.String(80))
-    email = db.Column(db.String(120), unique=True)
-    firstname = db.Column(db.String(80))
-    lastname = db.Column(db.String(80))
+    name = db.Column(db.String(80))
 
-    def __init__(self, username, password, email, firstname, lastname):
-        self.username = username
+    def __init__(self, email, password, name):
         self.password = password
         self.email = email
-        self.firstname = firstname
-        self.lastname = lastname
+        self.name = name
 
     def __repr__(self):
-        return '<User %r>' % self.username
+        return '<User %r>' % self.name
 
 class Login(Resource):
     def get(self):
@@ -36,14 +31,20 @@ class Login(Resource):
         parser.add_argument('username', type=str)
         parser.add_argument('password', type=str)
         requestData = parser.parse_args()
-        user = User_Info.query.filter_by(username=requestData['username']).filter_by(password=requestData['password']).first()
-        logging.info(user)
-        if user:
-            return {'Success':True, 'User_Id':user.user_id, 'First Name': user.firstname, 'Last Name': user.lastname}
-        else:
+        logging.debug(requestData)
+        try:
+            user = User_Info.query.filter_by(username=requestData['username']).filter_by(password=requestData['password']).first()
+            logging.info(user)
+            if user:
+                return {'Success':True, 'Name': user.name}
+        except InvalidRequestError as e:
+            logging.error(str(e))
+        except Exception as e:
+            logging.error(str(e))
+        finally:
             return {'Success': False}
 
 backendControllerAPI.add_resource(Login, '/login')
 
 if __name__ == '__main__':
-    backendControllerAPP.run(debug=True)
+    backendControllerAPP.run(host='0.0.0.0', debug=True)
