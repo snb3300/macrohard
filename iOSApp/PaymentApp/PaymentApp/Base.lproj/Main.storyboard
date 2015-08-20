@@ -7,7 +7,6 @@
         <!--HOME-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="PaymentApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
@@ -73,6 +72,7 @@
                         <segue destination="PdO-mf-Zbm" kind="presentation" identifier="goto_login" id="rsm-sP-rlw"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="835.5" y="-720"/>
         </scene>
@@ -264,12 +264,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="29" y="341" width="343" height="30"/>
+                                    <rect key="frame" x="16" y="342" width="343" height="30"/>
                                 </variation>
                                 <connections>
-                                    <action selector="gotoSignUp:" destination="PdO-mf-Zbm" eventType="touchUpInside" id="TPp-rj-2y4"/>
-                                    <action selector="signInTap:" destination="PdO-mf-Zbm" eventType="touchUpInside" id="69m-Qf-WPQ"/>
-                                    <segue destination="GDl-hB-IbZ" kind="presentation" id="7gV-4N-hgD"/>
+                                    <action selector="gotoSignUp:" destination="PdO-mf-Zbm" eventType="touchUpInside" id="GML-Gi-2cw"/>
+                                    <segue destination="GDl-hB-IbZ" kind="presentation" identifier="goto_signup" id="7gV-4N-hgD"/>
                                 </connections>
                             </button>
                         </subviews>

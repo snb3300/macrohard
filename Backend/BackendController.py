@@ -1,6 +1,7 @@
 from flask import Flask, request
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask_restful import Resource, Api, reqparse
+from sqlalchemy.exc import InvalidRequestError
 from sqlite3 import dbapi2 as sqlite3
 import logging, sqlite3
 
@@ -33,7 +34,7 @@ class Login(Resource):
         requestData = parser.parse_args()
         logging.debug(requestData)
         try:
-            user = User_Info.query.filter_by(username=requestData['username']).filter_by(password=requestData['password']).first()
+            user = UserInfo.query.filter_by(email=requestData['username']).filter_by(password=requestData['password']).first()
             logging.info(user)
             if user:
                 return {'Success':True, 'Name': user.name}
@@ -41,8 +42,7 @@ class Login(Resource):
             logging.error(str(e))
         except Exception as e:
             logging.error(str(e))
-        finally:
-            return {'Success': False}
+        return {'Success': False}
 
 backendControllerAPI.add_resource(Login, '/login')
 
