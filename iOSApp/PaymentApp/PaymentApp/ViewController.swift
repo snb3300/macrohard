@@ -14,7 +14,9 @@ class ViewController: UIViewController {
     
     
     @IBAction func logout(sender: UIButton) {
-    self.performSegueWithIdentifier("goto_login", sender: self)
+        let appDomain = NSBundle.mainBundle().bundleIdentifier
+        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+        self.performSegueWithIdentifier("goto_login", sender: self)
     }
     
     override func viewDidLoad() {
@@ -28,7 +30,17 @@ class ViewController: UIViewController {
     }
 
     override func viewDidAppear(animated: Bool) {
-    self.performSegueWithIdentifier("goto_login", sender: self)
+        super.viewDidAppear(true)
+        
+        let userInfo = NSUserDefaults.standardUserDefaults()
+        let userLoggedIn = userInfo.integerForKey("LOGGED_IN") as Int
+        if(userLoggedIn != 1) {
+            self.performSegueWithIdentifier("goto_login", sender: self)
+        } else {
+            if let username = userInfo.valueForKey("USERNAME") as? NSString {
+                self.usernameLabel.text = username as String
+            }
+        }
     }
 }
 
