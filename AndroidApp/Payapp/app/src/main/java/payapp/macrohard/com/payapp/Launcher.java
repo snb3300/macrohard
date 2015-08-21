@@ -29,13 +29,12 @@ public class Launcher extends AppCompatActivity {
 
     @OnClick(R.id.button_signup)
     public void signUp(View view) {
-        // TODO submit data to server...
-
+        Intent intent = new Intent(this,SignUpActivity.class);
+        startActivity(intent);
     }
 
     @OnClick(R.id.button_login)
     public void logIn(View view) {
-        // TODO submit data to server...
         Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
     }
