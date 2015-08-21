@@ -5,7 +5,7 @@ Install Postgres:
 http://www.postgresql.org/download/
 
 Development Setup:
-sudo easy_install pip
+sudo easy_install pip<br/>
 sudo pip install flask
 sudo pip install flask-restful
 sudo pip install psycopg2
