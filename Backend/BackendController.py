@@ -14,7 +14,7 @@ logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
 # Main flask app
 backendControllerAPP = Flask(__name__)
-backendControllerAPP.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://testbot:testbot@localhost/macrohard'
+backendControllerAPP.config.from_pyfile(filename='BackendConfiguration.py', silent=False)
 backendControllerAPI = Api(backendControllerAPP)
 
 # SQLAlchemy object
