@@ -88,7 +88,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3cP-sn-Hve">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3cP-sn-Hve">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -96,20 +96,12 @@
                                     <rect key="frame" x="105" y="150" width="188" height="30"/>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yBN-ny-R38">
-                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="106" y="221" width="189" height="30"/>
-                                </variation>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Sf-zk-UuW">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="107" y="279" width="188" height="30"/>
+                                    <rect key="frame" x="106" y="219" width="188" height="30"/>
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GZ0-x0-qKM">
@@ -117,15 +109,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="106" y="341" width="188" height="30"/>
+                                    <rect key="frame" x="106" y="288" width="188" height="30"/>
                                 </variation>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AGh-5c-TaB">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="106" y="401" width="189" height="30"/>
+                                    <rect key="frame" x="104" y="356" width="190" height="30"/>
                                 </variation>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAp-WR-Uar">
@@ -136,7 +128,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="164" y="479" width="73" height="30"/>
+                                    <rect key="frame" x="163" y="427" width="74" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="signUpTap:" destination="GDl-hB-IbZ" eventType="touchUpInside" id="fza-NF-bzN"/>
@@ -159,11 +151,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="47" y="534" width="305" height="30"/>
+                                    <rect key="frame" x="47" y="488" width="306" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="gotoLogin:" destination="GDl-hB-IbZ" eventType="touchUpInside" id="SrP-Am-o6n"/>
-                                    <action selector="signUpTap:" destination="GDl-hB-IbZ" eventType="touchUpInside" id="oKj-Et-CTS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -171,7 +162,6 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="3cP-sn-Hve"/>
-                                <exclude reference="yBN-ny-R38"/>
                                 <exclude reference="4Sf-zk-UuW"/>
                                 <exclude reference="GZ0-x0-qKM"/>
                                 <exclude reference="AGh-5c-TaB"/>
@@ -183,7 +173,6 @@
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="3cP-sn-Hve"/>
-                                <include reference="yBN-ny-R38"/>
                                 <include reference="4Sf-zk-UuW"/>
                                 <include reference="GZ0-x0-qKM"/>
                                 <include reference="AGh-5c-TaB"/>
@@ -196,8 +185,7 @@
                     <connections>
                         <outlet property="confirmPassword" destination="AGh-5c-TaB" id="NBI-5V-oVm"/>
                         <outlet property="email" destination="4Sf-zk-UuW" id="SR6-QF-oFy"/>
-                        <outlet property="firstName" destination="3cP-sn-Hve" id="Gl7-6f-dT3"/>
-                        <outlet property="lastName" destination="yBN-ny-R38" id="Yv0-40-5ai"/>
+                        <outlet property="name" destination="3cP-sn-Hve" id="D3H-9T-f3C"/>
                         <outlet property="password" destination="GZ0-x0-qKM" id="FxX-kB-S5k"/>
                     </connections>
                 </viewController>
@@ -246,6 +234,9 @@
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="106" y="219" width="188" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="passwordEdit:" destination="PdO-mf-Zbm" eventType="valueChanged" id="sWZ-lm-d8q"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEG-We-tEj">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>

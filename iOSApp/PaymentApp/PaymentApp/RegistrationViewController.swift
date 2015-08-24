@@ -7,14 +7,14 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+
 
 class RegistrationViewController: UIViewController {
 
     
-    @IBOutlet weak var firstName: UITextField!
-    
-    @IBOutlet weak var lastName: UITextField!
-    
+    @IBOutlet weak var name: UITextField!
     
     @IBOutlet weak var email: UITextField!
     
@@ -26,8 +26,43 @@ class RegistrationViewController: UIViewController {
     
     
     @IBAction func signUpTap(sender: UIButton) {
+        let nameTxt = name.text
+        let emailTxt = email.text
+        let passwordTxt = password.text
+        let confirmPasswordTxt = confirmPassword.text
+        
+        toggleTextField(name)
+        toggleTextField(email)
+        toggleTextField(password)
+        toggleTextField(confirmPassword)
+
+        if(nameTxt != "" && emailTxt != "" && passwordTxt != "" && confirmPasswordTxt != "") {
+            if(passwordTxt != confirmPasswordTxt) {
+                confirmPassword.text = "";
+                toggleTextField(confirmPassword)
+            } else {
+                let userDetails = [
+                    "name": nameTxt,
+                    "email": emailTxt,
+                    "password": passwordTxt
+                ]
+                Alamofire.request(.POST, "http://localhost:5000/register", parameters: userDetails).responseJSON {
+                        (request, response, data, error) in
+                    if(error != nil) {
+                        println("Error: \(error)")
+                        showAlert("Connection Error", error!.localizedDescription, self)
+                    } else {
+                        var jsonResponse = JSON(data!)
+                        if (jsonResponse["Success"]) {
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                        } else {
+                            showAlert("Sign up failed", jsonResponse["Error"].string!, self)
+                        }
+                    }
+                }
+            }
+        }
     }
-    
     
     @IBAction func gotoLogin(sender: UIButton) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -35,7 +70,10 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        name.layer.borderWidth = 1.0
+        email.layer.borderWidth = 1.0
+        password.layer.borderWidth = 1.0
+        confirmPassword.layer.borderWidth = 1.0
         // Do any additional setup after loading the view.
     }
 
