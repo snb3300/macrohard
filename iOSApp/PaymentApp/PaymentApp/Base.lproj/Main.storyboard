@@ -273,7 +273,7 @@
             </objects>
             <point key="canvasLocation" x="835.5" y="-720"/>
         </scene>
-        <!--Registration-->
+        <!--SIGN UP-->
         <scene sceneID="d48-xG-7dQ">
             <objects>
                 <viewController id="GDl-hB-IbZ" customClass="RegistrationViewController" customModule="PaymentApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -490,7 +490,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Registration" id="Gaa-qb-5eP"/>
+                    <navigationItem key="navigationItem" title="SIGN UP" id="Gaa-qb-5eP"/>
                     <connections>
                         <outlet property="email" destination="gY0-aQ-OH0" id="t0I-5T-xJH"/>
                         <outlet property="name" destination="8qI-Lx-C2k" id="6M5-7m-RRP"/>
