@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         let userInfo = NSUserDefaults.standardUserDefaults()
         let userLoggedIn = userInfo.integerForKey("LOGGED_IN") as Int
         if(userLoggedIn != 1) {
-            self.performSegueWithIdentifier("goto_login", sender: self)
+            self.performSegueWithIdentifier("goto_startup", sender: self)
         } else {
             if let username = userInfo.valueForKey("USERNAME") as? NSString {
                 self.usernameLabel.text = username as String

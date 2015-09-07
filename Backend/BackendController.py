@@ -28,9 +28,10 @@ class UserInfo(db.Model):
     Describes the table schema in the database.
     Each Object is a row from the user_info table
     """
+    # __tablename__ = 'user_info'
     # table columns
     email = db.Column(db.String(120), unique=True, primary_key=True)
-    password = db.Column(db.String(80))
+    password = db.Column(db.String(128))
     name = db.Column(db.String(80))
 
     def __init__(self, email, password, name):

@@ -11,6 +11,7 @@ sudo pip install flask-restful<br/>
 sudo pip install psycopg2<br/>
 sudo pip install Flask-SQLAlchemy<br/>
 sudo pip install requests<br/>
+sudo pip install passlib<br/>
 
 Execution:<br/>
 python BackendController.py

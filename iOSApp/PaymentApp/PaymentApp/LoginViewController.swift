@@ -15,26 +15,13 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var username: UITextField!
     
-    @IBOutlet weak var password: UITextField!
     
+    @IBOutlet weak var password: UITextField!
     
     @IBAction func signInTap(sender: UIButton) {
         var usernameTxt:NSString = username.text
         var passwordTxt:NSString = password.text
         
-//        if(usernameTxt == "") {
-//            username.layer.borderColor = UIColor.redColor().CGColor
-//            username.layer.addAnimation(animation(), forKey: nil)
-//        } else {
-//            username.layer.borderColor = UIColor.blackColor().CGColor
-//        }
-//        
-//        if (passwordTxt == "") {
-//            password.layer.borderColor = UIColor.redColor().CGColor
-//            password.layer.addAnimation(animation(), forKey: nil)
-//        } else {
-//            password.layer.borderColor = UIColor.blackColor().CGColor
-//        }
         toggleTextField(username)
         toggleTextField(password)
         
@@ -64,12 +51,13 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func gotoSignUp(sender: UIButton) {
-        self.performSegueWithIdentifier("goto_signup", sender: self)
-    }
-    
+//    override func viewDidAppear(animated: Bool) {
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//        super.viewDidAppear(animated)
+//    }
     
     override func viewDidLoad() {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewDidLoad()
         username.layer.borderWidth = 1.0
         password.layer.borderWidth = 1.0
