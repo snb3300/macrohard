@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/foods"
+
+    tools:context=".Launcher">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:id="@+id/button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:alpha="0.9"
+        android:layout_above="@+id/pager"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:background="@android:color/black"
+            android:textSize="16dp"
+            android:text="LOG IN" />
+
+        <Button
+            android:id="@+id/button_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="20dp"
+            android:textSize="16dp"
+            android:textColor="@color/white"
+            android:background="@android:color/holo_orange_dark"
+            android:text="SIGN UP" />
+    </LinearLayout>
+</RelativeLayout>
