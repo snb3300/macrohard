@@ -2,8 +2,8 @@ from instamojo import Instamojo
 import random
 
 # Initialize the InstaMojo API object.
-instamojo = Instamojo(api_key='ccf1719508ff93f0c181054be930e38a',
-                auth_token='4dd3c64ff11fa3e204d49e474450b487')
+instamojo = Instamojo(api_key='<insert API key>',
+                auth_token='<insert Auth Token>')
 print 'Initialized Instamojo API'
 
 # Generates auth token - This will not work since we are not approved.
