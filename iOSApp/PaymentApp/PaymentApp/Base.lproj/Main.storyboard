@@ -564,6 +564,9 @@
                                         <include reference="Drm-Ci-FCt"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="textFieldDidChange:" destination="PdO-mf-Zbm" eventType="editingChanged" id="AFR-Il-glw"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wse-Vf-qTa">
                                 <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
@@ -589,6 +592,9 @@
                                         <include reference="A1u-rp-ilG"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="textFieldDidChange:" destination="PdO-mf-Zbm" eventType="editingChanged" id="GVr-C6-Y2U"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--- or ---" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4CW-Ph-11t">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
@@ -683,6 +689,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="LOG IN" id="tON-Hn-N4L"/>
                     <connections>
+                        <outlet property="logIn" destination="qZq-ox-svz" id="ewa-3M-Phg"/>
                         <outlet property="password" destination="wse-Vf-qTa" id="58z-2G-GRc"/>
                         <outlet property="username" destination="aDV-sc-wOO" id="xWW-ee-Ypk"/>
                     </connections>

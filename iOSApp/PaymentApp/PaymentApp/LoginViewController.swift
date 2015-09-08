@@ -18,6 +18,10 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var password: UITextField!
     
+    
+    @IBOutlet weak var logIn: UIButton!
+    
+    
     @IBAction func signInTap(sender: UIButton) {
         var usernameTxt:NSString = username.text
         var passwordTxt:NSString = password.text
@@ -51,9 +55,19 @@ class LoginViewController: UIViewController {
         }
     }
     
-//    override func viewDidAppear(animated: Bool) {
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-//        super.viewDidAppear(animated)
+    @IBAction func textFieldDidChange(sender: AnyObject) {
+        println("Text Field Edit")
+        logIn.enabled = !username.text.isEmpty && !password.text.isEmpty
+        println(logIn.enabled)
+        if(logIn.enabled) {
+            logIn.alpha = 1
+        } else {
+            logIn.alpha = 0.5
+        }
+    }
+    
+//    func textFieldDidEndEditing(textField: UITextField) {
+//        println("TextField did begin editing method called")
 //    }
     
     override func viewDidLoad() {
@@ -61,6 +75,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         username.layer.borderWidth = 1.0
         password.layer.borderWidth = 1.0
+        logIn.enabled = false
+        logIn.alpha = 0.5
     }
 
     override func didReceiveMemoryWarning() {
