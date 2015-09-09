@@ -13,42 +13,43 @@ import SwiftyJSON
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var username: UITextField!
+    var utils = Utils()
     
+    @IBOutlet weak var email: UITextField!
     
     @IBOutlet weak var password: UITextField!
     
-    
     @IBOutlet weak var logIn: UIButton!
     
-    
     @IBAction func signInTap(sender: UIButton) {
-        var usernameTxt:NSString = username.text
+        var emailTxt:NSString = email.text
         var passwordTxt:NSString = password.text
         
-        toggleTextField(username)
-        toggleTextField(password)
-        
-        if (usernameTxt != "" && passwordTxt != ""){
+        if (emailTxt != "" && passwordTxt != ""){
             let credentials = [
-                "username" : usernameTxt,
-                "password" : passwordTxt
+                Constants.UserDetails.Email : emailTxt,
+                Constants.UserDetails.Password : passwordTxt
             ]
             Alamofire.request(.GET, "http://localhost:5000/login", parameters: credentials).responseJSON {
                 (request, response, data, error) in
                 if(error != nil) {
                     println("Error: \(error)")
-                    showAlert("Connection Error", error!.localizedDescription, self)
+                    self.utils.showAlert("Connection Error", message: error!.localizedDescription, delegate: self)
                 } else {
                     var jsonResponse = JSON(data!)
                     if (jsonResponse["Success"]) {
                         var userInfo:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-                        userInfo.setObject(jsonResponse["Name"].string, forKey: "USERNAME")
-                        userInfo.setInteger(1, forKey: "LOGGED_IN")
+                        userInfo.setObject(jsonResponse["Name"].string, forKey: Constants.UserDefaults.Name)
+                        userInfo.setInteger(1, forKey: Constants.UserDefaults.LoggedIn)
                         userInfo.synchronize()
-                        self.dismissViewControllerAnimated(true, completion: nil)
+                        var dashBoardViewController = self.storyboard!.instantiateViewControllerWithIdentifier(Constants.ViewController.Dashboard) as! ViewController
+                        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                        appDelegate.window?.rootViewController = dashBoardViewController
+                        appDelegate.window?.makeKeyAndVisible()
+//                        self.dismissViewControllerAnimated(true, completion: nil)
                     } else {
-                        showAlert("Sign in failed", "Incorrect Credentials", self)
+                        self.utils.showAlert("Sign in failed", message: "Incorrect Credentials", delegate: self)
+                        self.password.text = ""
                     }
                 }
             }
@@ -56,9 +57,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func textFieldDidChange(sender: AnyObject) {
-        println("Text Field Edit")
-        logIn.enabled = !username.text.isEmpty && !password.text.isEmpty
-        println(logIn.enabled)
+        logIn.enabled = self.utils.verifyEmail(email.text) && self.utils.verifyPassword(password.text)
         if(logIn.enabled) {
             logIn.alpha = 1
         } else {
@@ -66,15 +65,11 @@ class LoginViewController: UIViewController {
         }
     }
     
-//    func textFieldDidEndEditing(textField: UITextField) {
-//        println("TextField did begin editing method called")
-//    }
-    
     override func viewDidLoad() {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewDidLoad()
-        username.layer.borderWidth = 1.0
-        password.layer.borderWidth = 1.0
+//        email.layer.borderWidth = 1.0
+//        password.layer.borderWidth = 1.0
         logIn.enabled = false
         logIn.alpha = 0.5
     }

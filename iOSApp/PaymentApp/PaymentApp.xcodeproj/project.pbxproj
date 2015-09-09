@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		3BE187AFE8DD2A5E33690981 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A87D8FD4D7B7046FCE31CE /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9A8E25571B9588710083CB98 /* StartUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E25561B9588710083CB98 /* StartUpViewController.swift */; };
+		9A8E25591B9EB0D60083CB98 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E25581B9EB0D60083CB98 /* Utils.swift */; };
+		9A8E255B1BA018000083CB98 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8E255A1BA018000083CB98 /* Constants.swift */; };
 		9A913AA41B8A99730078D9D9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A913AA31B8A99730078D9D9 /* QuartzCore.framework */; };
-		9A913AA61B8ADA0E0078D9D9 /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A913AA51B8ADA0E0078D9D9 /* CommonMethods.swift */; };
 		9AB283ED1B830CF200F010BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB283EC1B830CF200F010BD /* AppDelegate.swift */; };
 		9AB283EF1B830CF200F010BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB283EE1B830CF200F010BD /* ViewController.swift */; };
 		9AB283F21B830CF200F010BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB283F01B830CF200F010BD /* Main.storyboard */; };
@@ -36,8 +37,9 @@
 		38B9F118B9854876B231EA49 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		63A87D8FD4D7B7046FCE31CE /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A8E25561B9588710083CB98 /* StartUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUpViewController.swift; sourceTree = "<group>"; };
+		9A8E25581B9EB0D60083CB98 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		9A8E255A1BA018000083CB98 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9A913AA31B8A99730078D9D9 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		9A913AA51B8ADA0E0078D9D9 /* CommonMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
 		9AB283E71B830CF200F010BD /* PaymentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaymentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AB283EB1B830CF200F010BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AB283EC1B830CF200F010BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,8 +114,9 @@
 				9AB283EA1B830CF200F010BD /* Supporting Files */,
 				9AB2840C1B83192400F010BD /* LoginViewController.swift */,
 				9AB2840E1B831A6300F010BD /* RegistrationViewController.swift */,
-				9A913AA51B8ADA0E0078D9D9 /* CommonMethods.swift */,
 				9A8E25561B9588710083CB98 /* StartUpViewController.swift */,
+				9A8E25581B9EB0D60083CB98 /* Utils.swift */,
+				9A8E255A1BA018000083CB98 /* Constants.swift */,
 			);
 			path = PaymentApp;
 			sourceTree = "<group>";
@@ -306,9 +309,10 @@
 				9AB2840D1B83192400F010BD /* LoginViewController.swift in Sources */,
 				9AB283EF1B830CF200F010BD /* ViewController.swift in Sources */,
 				9AB2840F1B831A6300F010BD /* RegistrationViewController.swift in Sources */,
+				9A8E25591B9EB0D60083CB98 /* Utils.swift in Sources */,
+				9A8E255B1BA018000083CB98 /* Constants.swift in Sources */,
 				9AB283ED1B830CF200F010BD /* AppDelegate.swift in Sources */,
 				9A8E25571B9588710083CB98 /* StartUpViewController.swift in Sources */,
-				9A913AA61B8ADA0E0078D9D9 /* CommonMethods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

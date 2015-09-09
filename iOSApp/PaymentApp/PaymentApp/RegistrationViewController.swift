@@ -13,68 +13,55 @@ import SwiftyJSON
 
 class RegistrationViewController: UIViewController {
 
-    
+    var utils = Utils()
     
     @IBOutlet weak var name: UITextField!
-    
     
     @IBOutlet weak var email: UITextField!
     
     @IBOutlet weak var password: UITextField!
     
+    @IBOutlet weak var signUp: UIButton!
+    
     @IBAction func signUpTap(sender: UIButton) {
-        let nameTxt = name.text
-        let emailTxt = email.text
-        let passwordTxt = password.text
-        
-        toggleTextField(name)
-        toggleTextField(email)
-        toggleTextField(password)
+        let userDetails = [
+            Constants.UserDetails.Name: name.text,
+            Constants.UserDetails.Email: email.text,
+            Constants.UserDetails.Password: password.text
+        ]
+        Alamofire.request(.POST, "http://localhost:5000/register", parameters: userDetails).responseJSON {
+            (request, response, data, error) in
+            if(error != nil) {
+                println("Error: \(error)")
+                self.utils.showAlert("Connection Error", message: error!.localizedDescription, delegate: self)
+            } else {
+                var jsonResponse = JSON(data!)
+                if (jsonResponse["Success"]) {
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                } else {
+                    self.utils.showAlert("Sign up failed", message: jsonResponse["Error"].string!, delegate: self)
+                }
+            }
+        }
+    }
+    
+    @IBAction func textFieldDidChange(sender: AnyObject) {
+        signUp.enabled = !self.name.text.isEmpty && self.utils.verifyEmail(email.text) && self.utils.verifyPassword(password.text)
+        if(signUp.enabled) {
+            signUp.alpha = 1
+        } else {
+            signUp.alpha = 0.5
+        }
+    }
 
-//        if(nameTxt != "" && emailTxt != "" && passwordTxt != "") {
-//            if(passwordTxt != confirmPasswordTxt) {
-//                confirmPassword.text = "";
-//                toggleTextField(confirmPassword)
-//            } else {
-//                let userDetails = [
-//                    "name": nameTxt,
-//                    "email": emailTxt,
-//                    "password": passwordTxt
-//                ]
-//                Alamofire.request(.POST, "http://localhost:5000/register", parameters: userDetails).responseJSON {
-//                        (request, response, data, error) in
-//                    if(error != nil) {
-//                        println("Error: \(error)")
-//                        showAlert("Connection Error", error!.localizedDescription, self)
-//                    } else {
-//                        var jsonResponse = JSON(data!)
-//                        if (jsonResponse["Success"]) {
-//                            self.dismissViewControllerAnimated(true, completion: nil)
-//                        } else {
-//                            showAlert("Sign up failed", jsonResponse["Error"].string!, self)
-//                        }
-//                    }
-//                }
-//            }
-//        }
-    }
-    
-    @IBAction func gotoLogin(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-//    override func viewDidAppear(animated: Bool) {
-//        self.navigationController?.setNavigationBarHidden(false, animated: true)
-//        super.viewDidAppear(animated)
-//    }
-    
     override func viewDidLoad() {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewDidLoad()
-        name.layer.borderWidth = 1.0
-        email.layer.borderWidth = 1.0
-        password.layer.borderWidth = 1.0
-        // Do any additional setup after loading the view.
+//        name.layer.borderWidth = 1.0
+//        email.layer.borderWidth = 1.0
+//        password.layer.borderWidth = 1.0
+        signUp.enabled = false
+        signUp.alpha = 0.5
     }
 
     override func didReceiveMemoryWarning() {

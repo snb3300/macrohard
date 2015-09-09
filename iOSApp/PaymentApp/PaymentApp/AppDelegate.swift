@@ -16,6 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        var rootViewController = self.window!.rootViewController
+        
+        let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let userInfo = NSUserDefaults.standardUserDefaults()
+        let userLoggedIn = userInfo.integerForKey(Constants.UserDefaults.LoggedIn) as Int
+        if(userLoggedIn != 1) {
+            var startUpViewController = mainStoryBoard.instantiateViewControllerWithIdentifier(Constants.ViewController.Startup) as! StartUpViewController
+            var navController = UINavigationController(rootViewController: startUpViewController)
+            window!.rootViewController = navController
+            window!.makeKeyAndVisible()
+        } else {
+            var dashBoardViewController = mainStoryBoard.instantiateViewControllerWithIdentifier(Constants.ViewController.Dashboard) as! ViewController
+            window!.rootViewController = dashBoardViewController
+            window!.makeKeyAndVisible()
+        }
         return true
     }
 

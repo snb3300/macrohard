@@ -16,7 +16,11 @@ class ViewController: UIViewController {
     @IBAction func logout(sender: UIButton) {
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
-        self.performSegueWithIdentifier("goto_login", sender: self)
+        let startUpViewController = self.storyboard!.instantiateViewControllerWithIdentifier(Constants.ViewController.Startup) as! StartUpViewController
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        var navController = UINavigationController(rootViewController: startUpViewController)
+        appDelegate.window?.rootViewController = navController
+        appDelegate.window?.makeKeyAndVisible()
     }
     
     override func viewDidLoad() {
@@ -33,11 +37,10 @@ class ViewController: UIViewController {
         super.viewDidAppear(true)
         
         let userInfo = NSUserDefaults.standardUserDefaults()
-        let userLoggedIn = userInfo.integerForKey("LOGGED_IN") as Int
+        let userLoggedIn = userInfo.integerForKey(Constants.UserDefaults.LoggedIn) as Int
         if(userLoggedIn != 1) {
-            self.performSegueWithIdentifier("goto_startup", sender: self)
         } else {
-            if let username = userInfo.valueForKey("USERNAME") as? NSString {
+            if let username = userInfo.valueForKey(Constants.UserDefaults.Name) as? NSString {
                 self.usernameLabel.text = username as String
             }
         }

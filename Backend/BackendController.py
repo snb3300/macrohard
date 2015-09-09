@@ -91,12 +91,12 @@ class Login(Resource):
         """
         error = None
         parser = reqparse.RequestParser()
-        parser.add_argument('username', type=str, required=True)
+        parser.add_argument('email', type=str, required=True)
         parser.add_argument('password', type=str, required=True)
         requestData = parser.parse_args()
         logging.debug(requestData)
         try:
-            user = UserInfo.query.filter_by(email=requestData['username']).filter_by(password=requestData['password']).first()
+            user = UserInfo.query.filter_by(email=requestData['email']).filter_by(password=requestData['password']).first()
             logging.info(user)
             if user:
                 return {'Success':True, 'Name': user.name}
