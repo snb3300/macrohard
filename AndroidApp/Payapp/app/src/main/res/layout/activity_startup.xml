@@ -1,14 +1,15 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/foods"
 
     tools:context=".Launcher">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
-        android:layout_alignParentTop="true"
+        android:layout_marginBottom="50dp"
         android:layout_width="match_parent"
+        android:alpha="0.5"
+        android:background="@drawable/foods"
         android:layout_height="match_parent"/>
 
     <LinearLayout
@@ -16,8 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:alpha="0.9"
-        android:layout_above="@+id/pager"
+
         android:orientation="horizontal">
 
         <Button

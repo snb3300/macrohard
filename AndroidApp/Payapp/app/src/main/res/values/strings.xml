@@ -2,9 +2,25 @@
     <string name="app_name">Payapp</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Logout</string>
     <string name="title_activity_login">LOG IN</string>
     <string name="title_activity_sign_up">SIGN UP</string>
+    <string name="title_activity_dashboard">Dashboard</string>
     <string name="facebook_app_id">1505553023069898</string>
-    <string name="or">-----Or-----</string>
+    <string name="or">--- or ---</string>
+
+    <string name="error_email">"&lt;small>Please enter email&lt;/small>"</string>
+    <string name="error_username">"&lt;small>Please enter username&lt;/small>"</string>
+    <string name="error_password">"&lt;small>Password must be at least 6 characters&lt;/small>"</string>
+    <string name="invalid_email">"&lt;small>Invalid email&lt;/small>"</string>
+    
+    <string name="progress_signup">Validating...</string>
+    <string name="progress_login">Login...</string>
+    <string name="title_activity_dispatch">Payapp</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="title_activity_forgot_password">Reset Password</string>
+
+    <string name="forgot_password_text">Enter your Patapp email address that you used to register. We will send you an email with your username and a link to reset your password.</string>
+
+
 </resources>

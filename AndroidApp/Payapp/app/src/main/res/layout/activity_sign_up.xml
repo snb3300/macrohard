@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:textColor="@color/darkorange"
+            android:textColor="@color/white"
             android:layout_centerVertical="true"
             android:inputType="textPersonName"
             android:ems="10"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:id="@+id/editText_email"
-            android:textColor="@color/darkorange"
+            android:textColor="@color/white"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:ems="10"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:id="@+id/editText_password"
-            android:textColor="@color/darkorange"
+            android:textColor="@color/white"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:ems="10"
@@ -63,7 +63,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/button_login"
+        android:id="@+id/button_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -76,14 +76,14 @@
         android:layout_below="@+id/password_text_input_layout"
         android:layout_centerHorizontal="true"
         android:background="@drawable/round_corner"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:text="SIGN UP" />
 
     <TextView
         android:id="@+id/text_or"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button_login"
+        android:layout_below="@+id/button_signup"
         android:layout_marginTop="20dp"
         android:layout_gravity="center_horizontal"
         android:layout_centerHorizontal="true"

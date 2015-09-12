@@ -15,7 +15,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import payapp.macrohard.com.payapp.R;
-import payapp.macrohard.com.payapp.constants.Constants;
+import payapp.macrohard.com.payapp.utils.Constants;
 
 /*
 We are using AppCompat library to support older version of Android
@@ -38,10 +38,16 @@ public class StartupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_startup);
+        // Enable Local Datastore.
+        //Parse.enableLocalDatastore(this);
+        //Parse.initialize(this, Constants.PARSE_APP_ID, Constants.PARSE_CLIENT_KEY);
         mPager = (ViewPager) findViewById(R.id.pager);
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
         initializeUI();
+//        ParseObject testObject = new ParseObject("TestObject");
+//        testObject.put("foo", "bar");
+//        testObject.saveInBackground();
     }
 
     private void initializeUI(){
