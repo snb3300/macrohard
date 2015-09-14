@@ -67,7 +67,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             public void done(ParseException e) {
                 dialog.dismiss();
                 if (e == null) {
-                    Toast.makeText(ForgotPasswordActivity.this,"Instructions to reset password has be successfully sent",Toast.LENGTH_LONG).show();
+                    Toast.makeText(ForgotPasswordActivity.this,"Instructions to reset password has been successfully sent",Toast.LENGTH_LONG).show();
                     // An email was successfully sent with reset instructions.
                 } else {
                     // Something went wrong. Look at the ParseException to see what's up.

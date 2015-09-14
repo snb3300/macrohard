@@ -1,5 +1,6 @@
 package payapp.macrohard.com.payapp.ui.activity;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -14,17 +15,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.facebook.AccessToken;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
-import com.facebook.Profile;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseFacebookUtils;
 import com.parse.ParseUser;
+
+import java.util.Arrays;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -38,54 +35,61 @@ public class LoginActivity extends AppCompatActivity {
     @Bind(R.id.editText_password) EditText passwordEditText;
     @Bind(R.id.button_login) Button loginButton;
     @Bind(R.id.text_forgot_password) TextView forgotpasswordTextView;
-
+    @Bind(R.id.button_fblogin) Button buttonFBLogin;
     Resources res;
     Typeface regularFont;
-    LoginButton fbLoginButton;
-    private CallbackManager mCallbackManager;
-    private FacebookCallback<LoginResult> mcallback = new FacebookCallback<LoginResult>() {
-        @Override
-        public void onSuccess(LoginResult loginResult) {
-            AccessToken accessToken = loginResult.getAccessToken();
-            Profile profile = Profile.getCurrentProfile();
-
-            if(profile != null){
-                Log.v("Profile",""+profile.getFirstName());
-            }else{
-                Log.v("profile","null");
-            }
-        }
-
-        @Override
-        public void onCancel() {
-            Log.v("onCancel","onCancel");
-        }
-
-        @Override
-        public void onError(FacebookException e) {
-            Log.v("onError",""+e.getMessage());
-        }
-    };
+   // LoginButton fbLoginButton;
+    private Dialog progressDialog;
+//    private CallbackManager mCallbackManager;
+//    private FacebookCallback<LoginResult> mcallback = new FacebookCallback<LoginResult>() {
+//        @Override
+//        public void onSuccess(LoginResult loginResult) {
+//            AccessToken accessToken = loginResult.getAccessToken();
+//            Profile profile = Profile.getCurrentProfile();
+//
+//            if(profile != null){
+//                Log.v("Profile",""+profile.getFirstName());
+//            }else{
+//                Log.v("profile","null");
+//            }
+//        }
+//
+//        @Override
+//        public void onCancel() {
+//            Log.v("onCancel","onCancel");
+//        }
+//
+//        @Override
+//        public void onError(FacebookException e) {
+//            Log.v("onError",""+e.getMessage());
+//        }
+//    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(getApplicationContext());
+       // FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_login);
         res = getResources();
         initializeUI();
         setFont();
-        facebookLogin();
+
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if ((currentUser != null) && ParseFacebookUtils.isLinked(currentUser)) {
+            // Go to the user info activity
+            showUserDetailsActivity();
+        }
+       // facebookLogin();
     }
 
-    private void facebookLogin(){
-        mCallbackManager = CallbackManager.Factory.create();
-        fbLoginButton.setReadPermissions();
-        fbLoginButton.registerCallback(mCallbackManager, mcallback);
-    }
+//    private void facebookLogin(){
+//        mCallbackManager = CallbackManager.Factory.create();
+//        fbLoginButton.setReadPermissions();
+//        fbLoginButton.registerCallback(mCallbackManager, mcallback);
+//    }
 
     private void setFont(){
-        fbLoginButton.setTypeface(regularFont);
+       // fbLoginButton.setTypeface(regularFont);
         loginButton.setTypeface(regularFont);
         emailEditText.setTypeface(regularFont);
         passwordEditText.setTypeface(regularFont);
@@ -95,15 +99,16 @@ public class LoginActivity extends AppCompatActivity {
     private void initializeUI(){
         ButterKnife.bind(this);
         regularFont.createFromAsset(getAssets(), Constants.REGULAR_FONT);
-        fbLoginButton = (LoginButton)findViewById(R.id.authButton);
+        //fbLoginButton = (LoginButton)findViewById(R.id.authButton);
 
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
-        mCallbackManager.onActivityResult(requestCode,resultCode,data);
+        ParseFacebookUtils.onActivityResult(requestCode, resultCode, data);
+        //ParseFacebookUtils.finishAuthentication(requestCode, resultCode, data);
+        //mCallbackManager.onActivityResult(requestCode,resultCode,data);
     }
 
     @OnClick(R.id.button_login)
@@ -158,5 +163,37 @@ public class LoginActivity extends AppCompatActivity {
         Intent i = new Intent(this,ForgotPasswordActivity.class);
         startActivity(i);
     }
+
+    @OnClick(R.id.button_fblogin)
+    public void onLoginClick(View v) {
+       progressDialog = ProgressDialog.show(LoginActivity.this, "", "Logging in...", true);
+
+        List<String> permissions = Arrays.asList("public_profile", "email");
+        // NOTE: for extended permissions, like "user_about_me", your app must be reviewed by the Facebook team
+        // (https://developers.facebook.com/docs/facebook-login/permissions/)
+        ParseFacebookUtils.logInWithReadPermissionsInBackground(this, permissions, new LogInCallback() {
+            @Override
+            public void done(ParseUser user, ParseException err) {
+                progressDialog.dismiss();
+                if (user == null) {
+                    Log.d(PayAppAplication.TAG, "Uh oh. The user cancelled the Facebook login.");
+                } else if (user.isNew()) {
+                    Log.d(PayAppAplication.TAG, "User signed up and logged in through Facebook!");
+                    showUserDetailsActivity();
+                } else {
+                    Log.d(PayAppAplication.TAG, "User logged in through Facebook!");
+                    showUserDetailsActivity();
+                }
+            }
+        });
+
+
+    }
+
+    private void showUserDetailsActivity() {
+        Intent intent = new Intent(this, DashboardActivity.class);
+        startActivity(intent);
+    }
+
 
 }

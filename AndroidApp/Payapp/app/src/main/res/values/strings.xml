@@ -20,7 +20,7 @@
     <string name="forgot_password">Forgot Password</string>
     <string name="title_activity_forgot_password">Reset Password</string>
 
-    <string name="forgot_password_text">Enter your Patapp email address that you used to register. We will send you an email with your username and a link to reset your password.</string>
+    <string name="forgot_password_text">Enter your Payapp email address that you used to register. We will send you an email with your username and a link to reset your password.</string>
 
 
 </resources>

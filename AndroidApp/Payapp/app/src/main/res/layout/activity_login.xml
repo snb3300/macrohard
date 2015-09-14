@@ -83,20 +83,42 @@
         android:layout_centerHorizontal="true"
         android:text="@string/or"/>
 
-    <com.facebook.login.widget.LoginButton
-        android:id="@+id/authButton"
+    <!--<com.facebook.login.widget.LoginButton-->
+        <!--android:id="@+id/authButton"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/text_or"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:textSize="16dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:paddingTop="15dp"-->
+        <!--android:paddingBottom="15dp"-->
+        <!--android:paddingLeft="40dp"-->
+        <!--android:paddingRight="40dp"-->
+        <!--/>-->
+
+    <Button
+        android:id="@+id/button_fblogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_or"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/text_or"
+        android:text="@string/com_facebook_loginview_log_in_button"
+        android:textColor="@color/com_facebook_share_button_text_color"
+        android:textSize="@dimen/com_facebook_share_button_text_size"
+        android:textStyle="bold"
+
         android:layout_centerHorizontal="true"
-        android:textSize="16dp"
-        android:layout_marginTop="20dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:paddingLeft="40dp"
-        android:paddingRight="40dp"
-        />
+        android:background="@drawable/com_facebook_button_background"
+        android:drawableLeft="@drawable/com_facebook_button_icon"
+        android:drawablePadding="@dimen/com_facebook_share_button_compound_drawable_padding"
+        android:paddingLeft="@dimen/com_facebook_share_button_padding_left"
+        android:paddingTop="@dimen/com_facebook_share_button_padding_top"
+        android:paddingRight="@dimen/com_facebook_share_button_padding_right"
+        android:paddingBottom="@dimen/com_facebook_share_button_padding_bottom"
+        android:onClick="onLoginClick"/>
 
 
 </RelativeLayout>
