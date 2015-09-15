@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Parse
 
 
 class LoginViewController: UIViewController {
@@ -25,34 +26,18 @@ class LoginViewController: UIViewController {
         var emailTxt:NSString = email.text
         var passwordTxt:NSString = password.text
         
-        if (emailTxt != "" && passwordTxt != ""){
-            let credentials = [
-                Constants.UserDetails.Email : emailTxt,
-                Constants.UserDetails.Password : passwordTxt
-            ]
-            Alamofire.request(.GET, "http://localhost:5000/login", parameters: credentials).responseJSON {
-                (request, response, data, error) in
-                if(error != nil) {
-                    println("Error: \(error)")
-                    self.utils.showAlert("Connection Error", message: error!.localizedDescription, delegate: self)
-                } else {
-                    var jsonResponse = JSON(data!)
-                    if (jsonResponse["Success"]) {
-                        var userInfo:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-                        userInfo.setObject(jsonResponse["Name"].string, forKey: Constants.UserDefaults.Name)
-                        userInfo.setInteger(1, forKey: Constants.UserDefaults.LoggedIn)
-                        userInfo.synchronize()
-                        var dashBoardViewController = self.storyboard!.instantiateViewControllerWithIdentifier(Constants.ViewController.Dashboard) as! ViewController
-                        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                        appDelegate.window?.rootViewController = dashBoardViewController
-                        appDelegate.window?.makeKeyAndVisible()
-//                        self.dismissViewControllerAnimated(true, completion: nil)
+        if (emailTxt != "" && passwordTxt != "") {
+            PFUser.logInWithUsernameInBackground(emailTxt as String, password: passwordTxt as String,
+                block: {
+                    (authUser: PFUser?, error: NSError?) -> Void in
+                    if(authUser != nil) {
+                        println("Login Successful")
+                        self.utils.gotoDashboard(authUser?.objectForKey("name") as! String)
                     } else {
-                        self.utils.showAlert("Sign in failed", message: "Incorrect Credentials", delegate: self)
-                        self.password.text = ""
+                        self.utils.showAlert("Error", message: error!.localizedDescription, delegate: self)
                     }
                 }
-            }
+            )
         }
     }
     

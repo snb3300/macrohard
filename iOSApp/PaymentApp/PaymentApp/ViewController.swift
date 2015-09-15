@@ -7,20 +7,28 @@
 //
 
 import UIKit
+import Parse
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIViewControllerTransitioningDelegate {
 
+    var utils = Utils()
+    
     @IBOutlet weak var usernameLabel: UILabel!
     
-    
     @IBAction func logout(sender: UIButton) {
-        let appDomain = NSBundle.mainBundle().bundleIdentifier
-        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
-        let startUpViewController = self.storyboard!.instantiateViewControllerWithIdentifier(Constants.ViewController.Startup) as! StartUpViewController
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        var navController = UINavigationController(rootViewController: startUpViewController)
-        appDelegate.window?.rootViewController = navController
-        appDelegate.window?.makeKeyAndVisible()
+        PFUser.logOutInBackgroundWithBlock({
+            (error) -> Void in
+            if (error != nil) {
+                self.utils.showAlert("Error", message: error!.localizedDescription, delegate: self)
+            } else {
+                let appDomain = NSBundle.mainBundle().bundleIdentifier
+                let startUpViewController = self.storyboard!.instantiateViewControllerWithIdentifier(Constants.ViewController.Startup) as! StartUpViewController
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                var navController = UINavigationController(rootViewController: startUpViewController)
+                navController.transitioningDelegate = self
+                self.presentViewController(navController, animated: true, completion: nil)
+            }
+        })
     }
     
     override func viewDidLoad() {
@@ -34,16 +42,9 @@ class ViewController: UIViewController {
     }
 
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        
-        let userInfo = NSUserDefaults.standardUserDefaults()
-        let userLoggedIn = userInfo.integerForKey(Constants.UserDefaults.LoggedIn) as Int
-        if(userLoggedIn != 1) {
-        } else {
-            if let username = userInfo.valueForKey(Constants.UserDefaults.Name) as? NSString {
-                self.usernameLabel.text = username as String
-            }
-        }
+        super.viewDidAppear(true)        
+        var authUser:PFUser = PFUser.currentUser()!
+        self.usernameLabel.text = authUser.objectForKey("name") as? String
     }
 }
 

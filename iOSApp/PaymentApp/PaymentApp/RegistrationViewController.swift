@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Parse
 
 
 class RegistrationViewController: UIViewController {
@@ -24,25 +25,20 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var signUp: UIButton!
     
     @IBAction func signUpTap(sender: UIButton) {
-        let userDetails = [
-            Constants.UserDetails.Name: name.text,
-            Constants.UserDetails.Email: email.text,
-            Constants.UserDetails.Password: password.text
-        ]
-        Alamofire.request(.POST, "http://localhost:5000/register", parameters: userDetails).responseJSON {
-            (request, response, data, error) in
-            if(error != nil) {
-                println("Error: \(error)")
-                self.utils.showAlert("Connection Error", message: error!.localizedDescription, delegate: self)
+        var user: PFUser = PFUser()
+        user.username = email.text as String
+        user.password = password.text as String
+        user.email = email.text as String
+        user.setObject(name.text as String, forKey: "name")
+        user.signUpInBackgroundWithBlock({
+            (succeeded: Bool, error:NSError?) -> Void in
+            if(succeeded) {
+                println("Sign up Successful")
+                self.utils.gotoDashboard(self.name.text)
             } else {
-                var jsonResponse = JSON(data!)
-                if (jsonResponse["Success"]) {
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                } else {
-                    self.utils.showAlert("Sign up failed", message: jsonResponse["Error"].string!, delegate: self)
-                }
+                self.utils.showAlert("Error", message: error!.localizedDescription, delegate: self)
             }
-        }
+        })
     }
     
     @IBAction func textFieldDidChange(sender: AnyObject) {
@@ -57,9 +53,6 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         super.viewDidLoad()
-//        name.layer.borderWidth = 1.0
-//        email.layer.borderWidth = 1.0
-//        password.layer.borderWidth = 1.0
         signUp.enabled = false
         signUp.alpha = 0.5
     }

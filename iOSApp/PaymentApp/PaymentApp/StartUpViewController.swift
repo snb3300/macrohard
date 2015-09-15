@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Parse
 
-class StartUpViewController: UIViewController {
-
+class StartUpViewController: UIViewController, UIViewControllerTransitioningDelegate {
+        
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         super.viewWillAppear(animated)
@@ -17,6 +18,12 @@ class StartUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let testObject = PFObject(className: "TestObject")
+//        testObject.addObject("bar", forKey: "foo")
+//        testObject["foo"] = "bar"
+//        testObject.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+//            println("Object has been saved.")
+//        }
         // Do any additional setup after loading the view.
     }
 
